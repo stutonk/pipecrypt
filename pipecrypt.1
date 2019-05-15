@@ -1,0 +1,30 @@
+.TH pipecrypt 1 "15 May 2019" "version 1.0.0" "USER COMMANDS"
+.SH NAME
+pipecrypt \- encrypt and decrypt streams with a key
+.SH SYNOPSIS
+.B pipecrypt
+[\-h, -v] key
+.SH DESCRIPTION
+pipecrypt is a lightweight alternatve to PGP for securely encrypting streams
+using NaCl's secretbox. It expects a hexidecimal string as an argument which
+should be 64 characters (32 bytes) long \-\- additional characters are
+ignored. The program reads from STDIN and writes to STDOUT.
+.SH OPTIONS
+.TP
+\-d, \-\-decrypt
+operate in decrypt mode
+.TP
+\-h, \-\-help
+display help and exit
+.TP
+\-v \-\-version
+output version information and exit
+.SH SECURITY CONSIDERATIONS
+This program was primarily designed to be used in scripts; be mindful of
+your shell history when using it in interactive mode. The best practice is
+to use your shell's command substitution functionality to read the key from
+a file or output of some other program.
+.SH AUTHOR
+Joseph Eib (github.com/stutonk)
+.SH SEE ALSO
+passkey(1)
